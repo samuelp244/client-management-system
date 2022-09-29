@@ -14,7 +14,7 @@ const server = http.createServer((req:IncomingMessage,res:ServerResponse)=>{
         addData(req,res)
     }else if(req.url === '/addComment' && req.method === 'POST'){
         addComment(req,res)
-    }else if(req.url?.slice(0,18) === '/getClientData' && req.method === 'GET' ){
+    }else if(req.url?.slice(0,14) === '/getClientData' && req.method === 'GET' ){
         getClientData(req,res)
     }else if(req.url === '/getAllClientData' && req.method === 'GET'){
         getAllData(req,res)
@@ -24,7 +24,7 @@ const server = http.createServer((req:IncomingMessage,res:ServerResponse)=>{
         res.writeHead(404, { 'Content-Type': 'application/json' });
         res.end(
           JSON.stringify({
-            message: 'Route Not Found: Please use the api/products endpoint',
+            message: 'Route Not Found',
           })
         );
     }

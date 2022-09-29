@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api"
+const BASE_URL = "https://cms.reventhedev.gq/api"
 const submitBtn = document.getElementById("submitBtn")
 
 submitBtn.addEventListener("click",async(e)=>{

@@ -6,19 +6,19 @@ import { addComment, addData, getAllData, getClientData } from "./controllers/da
 mongoose.connect('mongodb://localhost:27017/client-management-system')
 
 const server = http.createServer((req:IncomingMessage,res:ServerResponse)=>{
-    if(req.url === '/api/register' && req.method === 'POST'){
+    if(req.url === '/register' && req.method === 'POST'){
         registerUser(req,res)
-    }else if(req.url === '/api/login' && req.method === 'POST'){
+    }else if(req.url === '/login' && req.method === 'POST'){
         loginUser(req,res)
-    }else if(req.url === '/api/addData' && req.method === 'POST'){
+    }else if(req.url === '/addData' && req.method === 'POST'){
         addData(req,res)
-    }else if(req.url === '/api/addComment' && req.method === 'POST'){
+    }else if(req.url === '/addComment' && req.method === 'POST'){
         addComment(req,res)
-    }else if(req.url?.slice(0,18) === '/api/getClientData' && req.method === 'GET' ){
+    }else if(req.url?.slice(0,18) === '/getClientData' && req.method === 'GET' ){
         getClientData(req,res)
-    }else if(req.url === '/api/getAllClientData' && req.method === 'GET'){
+    }else if(req.url === '/getAllClientData' && req.method === 'GET'){
         getAllData(req,res)
-    }else if(req.url === '/api/hello' && req.method === 'GET'){
+    }else if(req.url === '/hello' && req.method === 'GET'){
         return res.end(JSON.stringify({status:'ok',message:'hey'}))
     }else{
         res.writeHead(404, { 'Content-Type': 'application/json' });

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>dashboard</title>
+    <link rel="stylesheet" href="./static/css/dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script type='text/javascript'>
+        const isLoggedIn = window.localStorage.getItem('isLoggedIn');
+        if(!isLoggedIn){
+            window.location.replace('index.html')
+        }
+        
+    </script>
+</head>
+<body>
+    <nav class="flex justify-end">
+        <button id="logoutBtn" class=" m-3 px-2 bg-blue-800 text-white" >logout</button>
+    </nav>
+    <section>
+        <div id="managerSelect" class=" w-52">
+            <select class="form-select" id="selectClient" >
+                <option value="client1">client1</option>
+                <option value="client2">client2</option>
+              </select>
+        </div>
+        <div id="clientSelect" class="flex gap-2">
+            <p> User:</p><p id="clientName"></p>
+        </div>
+    </section>
+    <section>
+        <table class="table ">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ArticleID</th>
+                <th scope="col">TryHere</th>
+                <th scope="col">CurrentStatus</th>
+                <th scope="col">Comments</th>
+              </tr>
+            </thead>
+            <tbody id="myTable">
+           
+            </tbody>
+          </table>
+    </section>
+    <section>
+        <div id="my-modal" class="modal">
+            <div class="modal-content w-96">
+              <div class="modal-header h-10">
+                <span class="close text-black">&times;</span>
+                <!-- <h2>Confirm</h2> -->
+              </div>
+              <div class="modal-body grid gap-3">
+                <div class="flex gap-2">
+                    <label>Add your Observation: </label>
+                    <textarea class=" bg-slate-300 rounded" id="observationText"></textarea>
+                </div>
+                <div class="flex justify-between">
+                    <button class=" bg-red-500 text-white px-2 rounded " id="cancelBtn">CANCEL</button>
+                    <button class=" bg-blue-500 text-white px-3 rounded" id="okBtn">OK</button>
+                </div>
+              </div>
+              <!-- <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div> -->
+            </div>
+          </div>
+    </section>
+</body>
+<script type="text/javascript" language = "javascript" src="./static/js/dashboard.js"></script>
+</html>

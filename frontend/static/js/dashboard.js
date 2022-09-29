@@ -114,13 +114,13 @@ const buildTable = (data)=>{
     table.innerHTML = null
     for(let i=0;i<data.length;i++){
         let row = `<tr>
-                        <th scope="row">${data[i].articleId}</th>
-                        <td><a href="${data[i].articleUrl}">${data[i].articleUrl}</a></td>
-                        <td><select value=${data[i].status} id=${data[i]._id} onchange="tableOnChange(this)">
+                        <th class="text-center" scope="row">${data[i].articleId}</th>
+                        <td class="text-center"><a href="${data[i].articleUrl}">${data[i].articleUrl}</a></td>
+                        <td class="text-center"><select value=${data[i].status} id=${data[i]._id} onchange="tableOnChange(this)">
                             <option value="YES" ${data[i].status==='YES'?'selected':''}>YES</option>
                             <option value="NO" ${data[i].status==='NO'?'selected':''}>NO</option>
                         </select></td>
-                        <td>${data[i].comments}</td>
+                        <td class="text-center">${data[i].comments}</td>
                     </tr>`
         table.innerHTML += row
     }

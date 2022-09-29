@@ -13,7 +13,5 @@ submitBtn.addEventListener("click",async(e)=>{
         window.localStorage.setItem('role',res.role)
         window.localStorage.setItem('isLoggedIn',true)
         window.location.replace('dashboard.html')
-        
     }
-
 })

@@ -28,7 +28,7 @@ clientName.innerHTML = username
 
 let selectedId
 let selectedValue
-const tableOnChange = (selectObj)=>{
+const tableOnChange = async(selectObj)=>{
     var idx = selectObj.id; 
     // console.log(selectObj.selectedIndex)
     var inputValue = selectObj.value; 
@@ -36,6 +36,18 @@ const tableOnChange = (selectObj)=>{
         openModal()
         selectedId = idx
         selectedValue = inputValue
+    }else if(inputValue==="YES"){
+        if(role==='client'){
+            const res = await fetch(BASE_URL+'/addComment',{method:'POST',body:JSON.stringify({username:username,status:'YES',id:idx,comments:''})}).then(res=>{
+                return res.json()
+            })
+            location.replace(location)
+        }else if(role==='manager'){
+            const res = await fetch(BASE_URL+'/addComment',{method:'POST',body:JSON.stringify({username:selectClient.value,status:'YES',id:idx,comments:''})}).then(res=>{
+                return res.json()
+            })
+            location.replace(location)
+        }
     }
 }
 ////////////////////////////////modal////////////////////////////////////////////
